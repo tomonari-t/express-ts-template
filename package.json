@@ -4,13 +4,11 @@
   "description": "Node REST server written in TS.",
   "private": true,
   "scripts": {
-    "start": "npm run build && npm run watch",
+    "start": "node dist/server.js",
     "build": "npm run build-ts && npm run tslint",
-    "serve": "node dist/server.js",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"nodemon dist/server.js\"",
+    "develop": "ts-node-dev ./src/server.ts",
     "test": "jest --forceExit --coverage",
     "build-ts": "tsc",
-    "watch-ts": "tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "tslint:fix": "tslint -p tsconfig.json --fix"
   },
@@ -62,10 +60,10 @@
     "@types/supertest": "^2.0.0",
     "concurrently": "^3.4.0",
     "jest": "^19.0.2",
-    "nodemon": "^1.11.0",
     "supertest": "^2.0.1",
     "ts-jest": "^19.0.8",
+    "ts-node-dev": "^1.0.0-pre.30",
     "tslint": "^5.0.0",
-    "typescript": "^2.2.2"
+    "typescript": "^3.0.3"
   }
 }
